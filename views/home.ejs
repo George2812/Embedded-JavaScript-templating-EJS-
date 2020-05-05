@@ -1,0 +1,20 @@
+<!-Challenge 3 to include the header and footer EJS ⬆ ->
+  <%- include("partials/header") -%>
+
+  <!- Challenge 13 to do the for loop and log the posts title for every object ⬆->
+    <h1>Home</h1>
+    <p> <%=homeContent%> </p>
+
+    <!-Challenge 14 was to change the for to forEach - i put wrong input in function always remember singular form of array and then call ->
+      <!-Challenge 16 to print as h1 and p the title and content ⬆ ->
+        <% posts.forEach(function(post){ %>
+        <h1><%=post.title%></h1>
+        <p><%=post.content.substring(0,100) + " ..."%>
+          <a href="/posts/<%=post.title %>"> Read More</a></p>
+        <% }); %>
+        <!-Challenge 20 was to add substring method ⬆ ->
+          <!-Challenge 21 was to add anchor tag which i made correctly but i was not able to figure the path->
+
+
+            <!-Challenge 4 to specify the partials path inside include ⬆ ->
+              <%- include("partials/footer") -%>
