@@ -19,14 +19,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-//Challenge 1 to connect Home Page with home ejs ⬆
+//connect Home Page with home ejs
 
 app.get("/", function(req, res) {
-  //Challenge 2 to render the content of homeStartingContent with
-  //homeContent in the home.ejs file ⬆
-
-  //Challenge 12 i have to put two variables insted of 1 i was thinking
-  //in target though good job
+  
   res.render("home", {
     homeContent: homeStartingContent,
     posts: posts
@@ -35,8 +31,8 @@ app.get("/", function(req, res) {
 });
 
 
-//Challenge 5 to connect about & contact pages with variables
-//and header footer ejs ⬆
+//connect about & contact pages with variables
+//and header footer ejs
 app.get("/about", function(req, res) {
 
   res.render("about", {
@@ -54,7 +50,7 @@ app.get("/contact", function(req, res) {
 });
 
 
-//Challenge 7 - Connect with compose ejs ⬆
+//Connect with compose ejs
 
 app.get("/compose", function(req, res) {
 
@@ -62,25 +58,22 @@ app.get("/compose", function(req, res) {
 
 });
 
-//Challenge 8 to post data from compose input and log in console ⬆
+//post data from compose input
 app.post("/compose", function(req, res) {
-  //Challenge 10 to create post object and pass the values from inputs ⬆
+  
   const post = {
     title: req.body.postTitle,
     content: req.body.postBody
   };
-  //Challenge 11 to create posts array in top and push post and display in console ⬆
+  //create posts array in top and push the post
   posts.push(post);
   res.redirect("/");
 
 });
 
-//Challenge 16 - Write the code for get with code parameters and console log ⬆
-app.get("/posts/:postName", function(req, res) {
-  //Challenge 17 - Create a console log for each Title that is same with parameter
-  //title postName  ⬆
 
-  //but forgot postedName inside the loop and couldn't pass the lowerCase
+app.get("/posts/:postName", function(req, res) {
+ 
   const postedName = _.lowerCase(req.params.postName);
 
   posts.forEach(function(post) {
@@ -90,7 +83,6 @@ app.get("/posts/:postName", function(req, res) {
 
     if (storedTitle === postedName) {
 
-      //Challenge 19 i had to render the composed message to a new page
       res.render("post", {
         composedTitle: post.title,
         composedContent: post.content
@@ -104,9 +96,6 @@ app.get("/posts/:postName", function(req, res) {
 
 
 });
-
-
-
 
 
 
